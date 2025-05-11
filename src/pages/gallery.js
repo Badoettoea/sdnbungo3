@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { SwipeableViews } from 'react-swipeable-views'
+import SwipeableViews from 'react-swipeable-views'
 import { supabase } from '../lib/supabaseClient'
 import styles from '../styles/Gallery.module.css'
 
@@ -67,7 +67,7 @@ export default function Gallery() {
                   <p>{album.description}</p>
                   
                   <div className={styles.photosGrid}>
-                    {album.photos.map(photo => (
+                    {album.photos?.map(photo => (
                       <div key={photo.id} className={styles.photoItem}>
                         <img 
                           src={`https://dswzjhefngrgzowcilll.supabase.co/storage/v1/object/public/gallery/${photo.path}`}
